@@ -1,5 +1,5 @@
 # Arch Linux on laptop
-Installation guide for Arch Linux on a modern laptop (EFI).
+Installation guide for Arch Linux on a modern laptop (EFI). Basic installation part should work with almost any laptop (you may encounter problems with wifi though). Advanced part is mostly optimized for ASUS UX32L.
 
 ## Basic installation
 
@@ -230,3 +230,12 @@ Install few packages:
 ```
 $ yaourt -S lxappearance gtk-theme-arc-git vertex-icons-git xcursor-human
 ```
+Then set themes in LXAppearance app.
+
+#### Touchpad
+
+Install Synaptics driver:
+```
+# pacman -S xf86-input-synaptics
+```
+TODO: WTF next?

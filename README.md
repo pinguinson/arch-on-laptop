@@ -204,9 +204,20 @@ $ chsh -s /bin/zsh
 ```
 
 #### Fonts
-Install infinality:
+Install infinality. First, add two repositories to `/etc/pacman.conf`:
 ```
-TODO
+[infinality-bundle]
+Server = http://bohoomil.com/repo/$arch
+SigLevel = Never
+
+[infinality-bundle-fonts]
+Server = http://bohoomil.com/repo/fonts
+SigLevel = Never
+```
+
+Then install meta-packages:
+```
+# pacman -S ibfonts-meta-base infinality-bundle
 ```
 
 Install few fonts:

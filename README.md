@@ -238,4 +238,38 @@ Install Synaptics driver:
 ```
 # pacman -S xf86-input-synaptics
 ```
-TODO: WTF next?
+
+Create a file with synaptics config:
+```
+# sudo touch /etc/X11/xorg.conf.d/synaptics.conf
+```
+
+This basic configuration is quite enough for start:
+```
+Section "InputClass"
+        Identifier "touchpad catchall"
+        Driver "synaptics"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Option "TapButton1" "1"
+        Option "TapButton2" "2"
+        Option "EmulateTwoFingerMinZ" "35"
+        Option "EmulateTwoFingerMinW" "8"
+        Option "TapButton3" "3"
+        Option "VertTwoFingerScroll" "1"
+        Option "HorizTwoFingerScroll" "1"
+        Option "VertEdgeScroll" "1"
+        Option "HorizEdgeScroll" "1"
+        Option "VertScrollDelta" "100"
+        Option "HorizScrollDelta" "100"
+        Option "CoastingSpeed" "8"
+        Option "CornerCoasting" "1"
+        Option "CircularScrolling" "1"
+        Option "CircScrollTrigger" "7"
+EndSection
+```
+
+But if you want to have more options, you can find the full description in manual:
+```
+# man 4 synaptics
+```

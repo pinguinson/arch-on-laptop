@@ -129,3 +129,38 @@ So you don't have to enter password every fucking time:
 # echo "%wheel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-grant-nopasswd-sudo
 ```
 Here the basic installation comes to an end.
+
+## Advanced installation
+
+#### Configuring wifi
+
+You don't want to use wifi-menu every time, right? Let's automate this process. First, install *wpa_actiond* package:
+```
+# pacman -S wpa_actiond
+```
+
+Then start and enable the service:
+```
+# systemctl start netctl-auto@interface.service
+# systemctl enable netctl-auto@interface.service
+```
+
+#### Install yaourt
+
+You will need this to install packages from AUR. First, install git:
+```
+# pacman -S git
+```
+
+Then install *package-query* and *yaourt* packages:
+```
+$ git clone https://aur.archlinux.org/package-query.git
+$ cd package-query
+$ makepkg -si
+$ cd ..
+$ git clone https://aur.archlinux.org/yaourt.git
+$ cd yaourt
+$ makepkg -si
+$ cd ..
+$ rm -rf package-query/ yaourt/
+```

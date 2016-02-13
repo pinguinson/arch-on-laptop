@@ -164,3 +164,58 @@ $ makepkg -si
 $ cd ..
 $ rm -rf package-query/ yaourt/
 ```
+
+#### Graphics drivers
+
+Download nvidia drivers:
+```
+# pacman -S nvidia
+```
+Install bumblebee:
+```
+# pacman -S bumblebee
+```
+In order to use Bumblebee, it is necessary to add your regular user to the bumblebee group:
+```
+# gpasswd -a username bumblebee
+```
+Enable *bumblebeed* service and reboot:
+```
+# systemctl enable bumblebeed.service
+# reboot
+```
+
+#### Xorg
+
+First, install *xorg-server* and *xorg-xinit*:
+```
+# pacman -S xorg-server xorg-xinit
+```
+
+#### Dotfiles
+Install dotfiles from `pinguinson/dotfiles-mba`, then install few packages:
+```
+$ yaourt -S bspwm sxhkd compton-git lemonbar-xft-git ttf-ubuntu-font-family xorg-xrdb xorg-xsetroot rxvt-unicode-patched zsh prezto-git
+```
+
+Then switch to zsh:
+```
+$ chsh -s /bin/zsh
+```
+
+#### Fonts
+Install infinality:
+```
+TODO
+```
+
+Install few fonts:
+```
+$ yaourt -S ttf-monaco ttf-ubuntu-font-family
+```
+
+#### Appearance
+Install few packages:
+```
+$ yaourt -S lxappearance gtk-theme-arc-git vertex-icons-git xcursor-human
+```
